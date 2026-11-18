@@ -1,0 +1,141 @@
+
+<footer class="cicada-footer mt-auto py-5">
+
+    <div class="container">
+
+        <div class="row gy-5">
+
+            <!-- Brand -->
+            <div class="col-lg-5">
+
+                <a href="{% url 'landing:index' %}"
+                   class="text-decoration-none text-white">
+
+                    <h3 class="fw-bold mb-3">
+                        AndresReyes<span class="text-secondary">.</span>
+                    </h3>
+
+                </a>
+
+                <p class="text-white-50 small mb-4">
+                    Desarrollo de software, ingeniería backend
+                    y soluciones tecnológicas.
+                    Construyendo proyectos con propósito.
+                </p>
+
+                <!-- Social Links -->
+                <div class="d-flex gap-3">
+
+                    <a href="https://github.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="footer-social"
+                       aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="footer-social"
+                       aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="footer-social"
+                       aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="col-6 col-lg-3">
+
+                <h6 class="fw-semibold text-white mb-4">
+                    Navegación
+                </h6>
+
+                <ul class="list-unstyled d-grid gap-3 small">
+
+                    <li>
+                        <a href="{% url 'landing:index' %}"
+                           class="footer-link">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'landing:index' %}#technologies"
+                           class="footer-link">
+                            Tecnologías
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'landing:index' %}#projects"
+                           class="footer-link">
+                            Proyectos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'landing:index' %}#blog"
+                           class="footer-link">
+                            Blog
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+            <div class="col-6 col-lg-4">
+
+                <h6 class="fw-semibold text-white mb-4">
+                    Contacto
+                </h6>
+
+                <p class="text-white-50 small">
+                    ¿Tienes un proyecto o una idea?
+                    Hablemos sobre cómo desarrollarla.
+                </p>
+
+                <a href="{% url 'landing:index' %}#contact"
+                   class="btn btn-outline-light btn-sm px-3">
+
+                    Contactar
+                    <i class="bi bi-arrow-up-right ms-1"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <hr class="footer-divider my-5">
+
+        <!-- Bottom -->
+        <div class="d-flex flex-column flex-md-row
+                    justify-content-between align-items-center gap-3">
+
+            <p class="text-white-50 small mb-0">
+                &copy; {% now "Y" %} AndresReyes.
+                Todos los derechos reservados.
+            </p>
+
+            <p class="text-white-50 small mb-0">
+                Powered by Django & Bootstrap 5
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>

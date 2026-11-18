@@ -1,0 +1,82 @@
+
+/* ==========================================
+   GLOBAL COLORS
+========================================== */
+
+:root {
+    --site-bg: #111111;
+    --site-surface: #1a1a1a;
+    --site-border: rgba(255, 255, 255, 0.12);
+    --site-muted: #a1a1aa;
+}
+
+body {
+    background-color: var(--site-bg);
+    color: #ffffff;
+}
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.cicada-navbar {
+    background-color: #111111;
+    border-bottom: 1px solid var(--site-border);
+}
+
+.cicada-navbar .navbar-brand {
+    color: #ffffff;
+    letter-spacing: 0.04em;
+}
+
+.cicada-navbar .nav-link {
+    color: #a1a1aa;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.cicada-navbar .nav-link:hover,
+.cicada-navbar .nav-link:focus,
+.cicada-navbar .nav-link.active {
+    color: #ffffff;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.cicada-footer {
+    background-color: #111111;
+    color: #ffffff;
+    border-top: 1px solid var(--site-border);
+}
+
+.footer-link {
+    color: var(--site-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: #ffffff;
+}
+
+.footer-social {
+    color: #a1a1aa;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.footer-social:hover {
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.footer-divider {
+    border-color: var(--site-border);
+    opacity: 1;
+}

@@ -1,0 +1,437 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/landing.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section id="home" class="hero-section">
+    <div class="container hero-content">
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-7 text-center text-lg-start">
+
+                <span class="badge rounded-pill border border-light-subtle
+                             bg-dark text-white px-3 py-2 mb-4">
+                    <i class="bi bi-code-slash me-2"></i>
+                    Software Development
+                </span>
+
+                <h1 class="display-3 fw-bold lh-sm mb-4">
+                    Construyendo soluciones
+                    digitales para el mundo real.
+                </h1>
+
+                <p class="lead text-white-50 mb-4">
+                    Desarrollo de aplicaciones web, sistemas backend
+                    y soluciones tecnológicas escalables.
+                    Transformando ideas en proyectos funcionales.
+                </p>
+
+                <div class="d-flex flex-wrap gap-3
+                            justify-content-center justify-content-lg-start">
+
+                    <a href="#projects" class="btn btn-light btn-lg px-4">
+                        Explorar proyectos
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+
+                    <a href="#contact" class="btn btn-outline-light btn-lg px-4">
+                        Contactar
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="col-lg-5 d-flex justify-content-center">
+
+                <div class="cicada-emblem">
+                    <img
+                        src="{% static 'img/cicada.png' %}"
+                        alt="Emblema de la cigarra"
+                        class="cicada-image"
+                    >
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- TECHNOLOGIES -->
+<section id="technologies" class="section-dark py-5">
+    <div class="container py-5">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-5">
+
+                <span class="section-eyebrow">
+                    01 / CONOCIMIENTOS
+                </span>
+
+                <h2 class="display-5 fw-bold mt-3 mb-4">
+                    Tecnologías y herramientas
+                </h2>
+
+                <p class="text-white-50">
+                    Herramientas que utilizo para desarrollar
+                    aplicaciones, construir servicios backend,
+                    gestionar datos y resolver problemas técnicos.
+                </p>
+
+                <p class="text-white-50">
+                    Mi enfoque está en crear soluciones
+                    mantenibles, eficientes y preparadas para crecer.
+                </p>
+
+            </div>
+
+            <div class="col-lg-7">
+
+                {% for tech in technologies %}
+                <div class="mb-4">
+
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="fw-medium">
+                            <i class="{{ tech.icon }} me-2"></i>
+                            {{ tech.name }}
+                        </span>
+
+                        <span class="text-white-50">
+                            {{ tech.level }}%
+                        </span>
+                    </div>
+
+                    <div class="progress skill-progress"
+                         role="progressbar"
+                         aria-label="{{ tech.name }}"
+                         aria-valuenow="{{ tech.level }}"
+                         aria-valuemin="0"
+                         aria-valuemax="100">
+
+                        <div class="progress-bar skill-progress-bar"
+                             style="width: {{ tech.level }}%;">
+                        </div>
+
+                    </div>
+
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PORTFOLIO -->
+<section id="projects" class="section-surface py-5">
+    <div class="container py-5">
+
+        <div class="text-center mb-5">
+
+            <span class="section-eyebrow">
+                02 / PORTAFOLIO
+            </span>
+
+            <h2 class="display-5 fw-bold mt-3">
+                Proyectos destacados
+            </h2>
+
+            <p class="text-white-50">
+                Una selección de proyectos y soluciones desarrolladas.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% comment %}
+            FUTURA INTEGRACIÓN CON DJANGO
+
+            {% for project in projects %}
+            <div class="col-md-6 col-lg-4">
+
+                <article class="card project-card h-100">
+
+                    {% if project.image %}
+                    <img
+                        src="{{ project.image.url }}"
+                        class="card-img-top"
+                        alt="{{ project.title }}"
+                    >
+                    {% endif %}
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold">
+                            {{ project.title }}
+                        </h5>
+
+                        <p class="text-white-50">
+                            {{ project.description|truncatewords:25 }}
+                        </p>
+
+                        <a href="{{ project.get_absolute_url }}"
+                           class="btn btn-outline-light">
+                            Ver proyecto
+                        </a>
+
+                    </div>
+
+                </article>
+            </div>
+            {% endfor %}
+            {% endcomment %}
+
+            <div class="col-12">
+
+                <div class="empty-state text-center p-5">
+
+                    <i class="bi bi-folder2-open display-4"></i>
+
+                    <h4 class="fw-bold mt-4">
+                        Próximamente
+                    </h4>
+
+                    <p class="text-white-50 mb-0">
+                        Nuevos proyectos estarán disponibles aquí.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- BLOG -->
+<section id="blog" class="section-dark py-5">
+    <div class="container py-5">
+
+        <div class="text-center mb-5">
+
+            <span class="section-eyebrow">
+                03 / BLOG
+            </span>
+
+            <h2 class="display-5 fw-bold mt-3">
+                Artículos y conocimientos
+            </h2>
+
+            <p class="text-white-50">
+                Desarrollo, tecnología, aprendizaje y experiencias.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% comment %}
+            FUTURA INTEGRACIÓN CON DJANGO
+
+            {% for post in posts %}
+            <div class="col-md-6 col-lg-4">
+
+                <article class="card project-card h-100">
+
+                    {% if post.image %}
+                    <img
+                        src="{{ post.image.url }}"
+                        class="card-img-top"
+                        alt="{{ post.title }}"
+                    >
+                    {% endif %}
+
+                    <div class="card-body p-4">
+
+                        <small class="text-white-50">
+                            {{ post.created_at|date:"d M Y" }}
+                        </small>
+
+                        <h5 class="fw-bold mt-2">
+                            {{ post.title }}
+                        </h5>
+
+                        <p class="text-white-50">
+                            {{ post.excerpt|truncatewords:25 }}
+                        </p>
+
+                        <a href="{{ post.get_absolute_url }}"
+                           class="btn btn-outline-light">
+                            Leer artículo
+                        </a>
+
+                    </div>
+
+                </article>
+            </div>
+            {% endfor %}
+            {% endcomment %}
+
+            <div class="col-12">
+
+                <div class="empty-state text-center p-5">
+
+                    <i class="bi bi-journal-code display-4"></i>
+
+                    <h4 class="fw-bold mt-4">
+                        Publicaciones próximamente
+                    </h4>
+
+                    <p class="text-white-50 mb-0">
+                        Compartiré artículos sobre desarrollo
+                        de software y tecnología.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="section-surface py-5">
+    <div class="container py-5">
+
+        <div class="row g-5 align-items-center">
+
+            <div class="col-lg-5">
+
+                <span class="section-eyebrow">
+                    04 / CONTACTO
+                </span>
+
+                <h2 class="display-5 fw-bold mt-3 mb-4">
+                    Hablemos de tu próximo proyecto.
+                </h2>
+
+                <p class="text-white-50 mb-4">
+                    ¿Tienes una idea, una propuesta o necesitas
+                    desarrollar una solución tecnológica?
+                    Envíame un mensaje.
+                </p>
+
+                <div class="d-flex gap-3 align-items-center mb-3">
+                    <i class="bi bi-envelope fs-4"></i>
+                    <span>Consultas y propuestas</span>
+                </div>
+
+                <div class="d-flex gap-3 align-items-center">
+                    <i class="bi bi-globe-americas fs-4"></i>
+                    <span>Colombia · Trabajo remoto</span>
+                </div>
+
+            </div>
+
+            <div class="col-lg-7">
+
+                <div class="contact-card p-4 p-md-5">
+
+                    <!-- Future backend view -->
+                    <form action="#" method="POST">
+                        {% csrf_token %}
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">
+                                    Nombre
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    class="form-control"
+                                    placeholder="Tu nombre"
+                                    maxlength="150"
+                                    required
+                                >
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">
+                                    Correo electrónico
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    class="form-control"
+                                    placeholder="correo@ejemplo.com"
+                                    required
+                                >
+                            </div>
+
+                            <div class="col-12">
+                                <label for="subject" class="form-label">
+                                    Asunto
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="subject"
+                                    name="subject"
+                                    class="form-control"
+                                    placeholder="Asunto del mensaje"
+                                    maxlength="200"
+                                    required
+                                >
+                            </div>
+
+                            <div class="col-12">
+                                <label for="message" class="form-label">
+                                    Mensaje
+                                </label>
+
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    class="form-control"
+                                    rows="6"
+                                    placeholder="Cuéntame sobre tu proyecto..."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div class="col-12 mt-4">
+                                <button
+                                    type="submit"
+                                    class="btn btn-light btn-lg w-100">
+                                    Enviar mensaje
+                                    <i class="bi bi-send ms-2"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

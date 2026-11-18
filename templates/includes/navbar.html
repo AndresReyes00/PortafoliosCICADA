@@ -1,0 +1,132 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top cicada-navbar">
+
+    <div class="container py-2">
+
+        <!-- Brand -->
+        <a class="navbar-brand fw-bold fs-4"
+           href="{% url 'landing:index' %}">
+            AndresReyes<span class="text-secondary">.</span>
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Abrir navegación"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Content -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <!-- Navigation -->
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'landing:index' %}">
+                        Inicio
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'landing:index' %}#technologies">
+                        Tecnologías
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'landing:index' %}#projects">
+                        Proyectos
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'landing:index' %}#blog">
+                        Blog
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'landing:index' %}#contact">
+                        Contacto
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- Authentication -->
+            <div class="d-flex flex-column flex-lg-row gap-2">
+
+                {% if user.is_authenticated %}
+
+                    <div class="dropdown">
+
+                        <button
+                            class="btn btn-outline-light dropdown-toggle w-100"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            <i class="bi bi-person-circle me-2"></i>
+                            {{ user.username }}
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+
+                            {% if user.is_staff %}
+                            <li>
+                                <a class="dropdown-item"
+                                   href="{% url 'admin:index' %}">
+                                    <i class="bi bi-speedometer2 me-2"></i>
+                                    Administración
+                                </a>
+                            </li>
+                            {% endif %}
+
+                            <li>
+                                <form method="post" action="">
+                                    {% csrf_token %}
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-box-arrow-right me-2"></i>
+                                        Cerrar sesión
+                                    </button>
+                                </form>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                {% else %}
+
+                    <a href=""
+                       class="btn btn-outline-light">
+                        Iniciar sesión
+                    </a>
+
+                    <a href=""
+                       class="btn btn-light">
+                        Registrarse
+                        <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
